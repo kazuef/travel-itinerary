@@ -1,25 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ItineraryForm from './components/ItineraryForm';
+import ItineraryList from './components/ItineraryList';
+import ItineraryDetail from './components/ItineraryDetail';
+ 
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={ItineraryList} />
+        <Route path="/create" component={ItineraryForm} />
+        <Route path="/edit/:id" component={ItineraryForm} />
+        <Route path="/itinerary/:id" component={ItineraryDetail} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
