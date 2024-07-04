@@ -35,13 +35,48 @@ const ItineraryForm = () => {
             });
         }
     };
- 
 
-  return (
-    <form onSubmit={handleSubmit}>
-        <h2>{id ? 'Edit Itinerary' : 'Create Itinerary'}</h2>
-    </form>
-  )
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <h2>{id ? 'Edit Itinerary' : 'Create Itinerary'}</h2>
+            <div>
+                <label>Title</label>
+                <input
+                    type="text"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                />
+            </div>
+            <div>
+                <label>Description</label>
+                <textarea
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                />
+            </div>
+            <div>
+                <label>Start Date</label>
+                <input
+                    type="date"
+                    value={startDate}
+                    onChange={(e) => setStartDate(e.target.value)}
+                    required                
+                />
+            </div>
+            <div>
+                <label>End Date</label>
+                <input
+                    type="date"
+                    value={endDate}
+                    onChange={(e) => setEndDate(e.target.value)}
+                    required
+                />
+            </div>
+            <button type="submit">{id ? 'Update' : 'Create'}</button>
+        </form>
+    )
 }
 
 export default ItineraryForm
