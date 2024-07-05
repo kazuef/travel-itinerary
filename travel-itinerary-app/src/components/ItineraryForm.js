@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import api from '../api';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ItineraryForm = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
-    const history = useHistory();
+    const navigate = useNavigate();
     const { id } = useParams();
 
     useEffect(() => {
@@ -27,11 +27,11 @@ const ItineraryForm = () => {
         const itinerary = { title, description, startDate, endDate };
         if (id) {
             api.put(`/itineraries/${id}`, itinerary).then(() => {
-                history.push('/');
+                navigate.push('/');
             });
         } else {
             api.post('/itineraries', itinerary).then(() => {
-                history.push('/');
+                navigate.push('/');
             });
         }
     };
