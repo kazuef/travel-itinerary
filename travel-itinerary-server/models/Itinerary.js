@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = requere("../config/bd");
+const sequelize = require("../config/db");
 
 const Itinerary = sequelize.define('Itinerary', {
     id: {
