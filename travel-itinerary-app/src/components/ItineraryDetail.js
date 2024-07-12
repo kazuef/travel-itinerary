@@ -16,7 +16,7 @@ const ItineraryDetail = () => {
 
   const handleDelete = () => {
     api.delete(`/itineraries${id}`).then(() => {
-      navigate.push('/');
+      navigate('/');
     });
   };
 
