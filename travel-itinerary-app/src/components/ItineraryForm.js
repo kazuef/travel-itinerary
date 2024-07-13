@@ -30,7 +30,7 @@ const ItineraryForm = () => {
                 navigate('/');
             });
         } else {
-            api.post('/itineraries', itinerary).then(() => {
+            api.post('/', itinerary).then(() => {
                 navigate('/');
             });
         }
@@ -39,8 +39,8 @@ const ItineraryForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <header class="itinerary-top">
-                <h2 class='itinerary-title'>Itineraries</h2>
+            <header className="itinerary-top">
+                <h2 className='itinerary-title'>{id ? '予定編集' : '予定作成'}</h2>
             </header>
             <h2>{id ? 'Edit Itinerary' : 'Create Itinerary'}</h2>
             <div>

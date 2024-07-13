@@ -8,7 +8,7 @@ const ItineraryList = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        api.get('/itineraries').then((response) => {
+        api.get('/').then((response) => {
             setItineraries(response.data);
         });
     }, []);
@@ -19,10 +19,10 @@ const ItineraryList = () => {
     
     return (
         <div>
-            <header class="itinerary-top">
-                <h2 class='itinerary-title'>Itineraries</h2>
+            <header className="itinerary-top">
+                <h2 className='itinerary-title'>旅行のしおり</h2>
             </header>
-            <button class='btn' onClick={handleClick}>Create New Itinerary</button>
+            <button className='btn' onClick={handleClick}>新規しおり作成</button>
             <ul>
                 {itineraries.map((itinerary) => (
                     <li key={itinerary.id}>
