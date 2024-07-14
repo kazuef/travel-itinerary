@@ -26,7 +26,7 @@ const ItineraryList = () => {
             <ul>
                 {itineraries.map((itinerary) => (
                     <li key={itinerary.id}>
-                        <Link to={`/itinerary/${itinerary.id}`}>{itinerary.title}</Link>
+                        <Link to={`/edit/${itinerary.id}`}>{itinerary.title}</Link>
                     </li>
                 ))}
             </ul>

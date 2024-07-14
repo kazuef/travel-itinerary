@@ -12,7 +12,7 @@ const ItineraryForm = () => {
 
     useEffect(() => {
         if (id) {
-            api.get(`/itineraries/${id}`).then((response) => {
+            api.get(`/${id}`).then((response) => {
                 const { title, description, startDate, endDate } = response.data;
                 setTitle(title);
                 setDescription(description);
@@ -26,7 +26,7 @@ const ItineraryForm = () => {
         e.preventDefault();
         const itinerary = { title, description, startDate, endDate };
         if (id) {
-            api.put(`/itineraries/${id}`, itinerary).then(() => {
+            api.put(`/${id}`, itinerary).then(() => {
                 navigate('/');
             });
         } else {
