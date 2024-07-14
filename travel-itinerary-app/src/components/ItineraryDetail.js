@@ -9,13 +9,13 @@ const ItineraryDetail = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    api.get(`/itineraries/${id}`).then((response) => {
+    api.get(`/${id}`).then((response) => {
       setItinerary(response.data);
     });
   }, [id]);
 
   const handleDelete = () => {
-    api.delete(`/itineraries${id}`).then(() => {
+    api.delete(`/${id}`).then(() => {
       navigate('/');
     });
   };
@@ -27,6 +27,9 @@ const ItineraryDetail = () => {
   
   return (
     <div>
+      <header className="itinerary-top">
+        <h2 className='itinerary-title'>予定詳細</h2>
+      </header>
       <h2>{itinerary.title}</h2>
       <p>{itinerary.description}</p>
       <p>
