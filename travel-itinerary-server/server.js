@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use('/api/itineraries', itineraryRoutes);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 sequelize.sync().then(() => {
   app.listen(PORT, () => {
