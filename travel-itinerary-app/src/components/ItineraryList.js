@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../api';
 import '../App.css';
+import { Container } from 'reactstrap';
 
 const ItineraryList = () => {
     const [itineraries, setItineraries] = useState([]);
@@ -19,6 +20,7 @@ const ItineraryList = () => {
     
     return (
         <div>
+            <Container className="bg-light border">
             <header className="itinerary-top">
                 <h2 className='itinerary-title'>旅行のしおり</h2>
             </header>
@@ -30,6 +32,7 @@ const ItineraryList = () => {
                     </li>
                 ))}
             </ul>
+            </Container>
         </div>
     );
 };
