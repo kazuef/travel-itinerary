@@ -38,7 +38,7 @@ const ItineraryForm = () => {
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="container" onSubmit={handleSubmit}>
             <header className="itinerary-top">
                 <h2 className='itinerary-title'>{id ? '予定編集' : '予定作成'}</h2>
             </header>

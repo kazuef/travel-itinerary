@@ -19,12 +19,11 @@ const ItineraryList = () => {
     };
     
     return (
-        <div>
-            <Container className="bg-light border">
-            <header className="itinerary-top">
-                <h2 className='itinerary-title'>旅行のしおり</h2>
-            </header>
-            <button className='btn' onClick={handleClick}>新規しおり作成</button>
+        <div className="container">
+            <div class="d-grid gap-2 col-6 mx-auto"> 
+            <button className='btn btn-primary' onClick={handleClick}>新規しおり作成</button>
+            </div>
+            
             <ul>
                 {itineraries.map((itinerary) => (
                     <li key={itinerary.id}>
@@ -32,7 +31,6 @@ const ItineraryList = () => {
                     </li>
                 ))}
             </ul>
-            </Container>
         </div>
     );
 };
