@@ -39,37 +39,41 @@ const ItineraryForm = () => {
 
     return (
         <form className="container" onSubmit={handleSubmit}>
-            <header className="itinerary-top">
+            {/* <header className="itinerary-top">
                 <h2 className='itinerary-title'>{id ? '予定編集' : '予定作成'}</h2>
-            </header>
-            <h2>{id ? 'Edit Itinerary' : 'Create Itinerary'}</h2>
-            <div>
-                <label>Title</label>
+            </header> */}
+            <h2 class="mt-3">{id ? 'Edit Itinerary' : 'Create Itinerary'}</h2>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Title</label>
                 <input
                     type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="しおりのタイトル"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    required
-                />
+                    required />
             </div>
-            <div>
-                <label>Description</label>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
                 <textarea
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                />
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3" value={description}
+                    onChange={(e) => setDescription(e.target.value)}>
+                </textarea>
             </div>
-            <div>
-                <label>Start Date</label>
+            <div class="mb-3">
+                <label class="form-label me-2">Start Date</label>
                 <input
                     type="date"
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
-                    required                
+                    required
                 />
             </div>
-            <div>
-                <label>End Date</label>
+            <div class="mb-3">
+                <label class="form-label me-2">End Date</label>
                 <input
                     type="date"
                     value={endDate}
@@ -77,7 +81,7 @@ const ItineraryForm = () => {
                     required
                 />
             </div>
-            <button type="submit">{id ? 'Update' : 'Create'}</button>
+            <button class="mb-3 btn btn-primary" type="submit">{id ? 'Update' : 'Create'}</button>
         </form>
     )
 }
