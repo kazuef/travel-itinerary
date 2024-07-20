@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
-const Header = () => {
+const Headers = () => {
   return (
     <header>
       <Router>
@@ -15,7 +15,7 @@ const Header = () => {
               <Link to="/">ホーム</Link>
             </li>
             <li>
-              <a href="#">しおり</a>
+              <a href="/#">しおり</a>
             </li>
           </ul>
         </nav>
@@ -24,4 +24,4 @@ const Header = () => {
   )
 }
 
-export default Header;
+export default Headers;

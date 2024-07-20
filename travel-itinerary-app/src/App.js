@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ItineraryForm from './components/ItineraryForm';
 import ItineraryList from './components/ItineraryList';
 import ItineraryDetail from './components/ItineraryDetail';
-import Header from './components/Header';
+import Headers from './components/Headers';
  
 const App = () => {
   return (
     <div>
-      <Header />
+      <Headers />
       <Router>
         <Routes>
           <Route path="/" exact element={<ItineraryList />} />
