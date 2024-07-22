@@ -26,7 +26,7 @@ const ItineraryDetail = () => {
   
   
   return (
-    <div>
+    <div className="container">
       <header className="itinerary-top">
         <h2 className='itinerary-title'>予定詳細</h2>
       </header>
@@ -36,7 +36,7 @@ const ItineraryDetail = () => {
         {new Date(itinerary.startDate).toLocaleDateString()} -{' '}
         {new Date(itinerary.endDate).toLocaleDateString()}
       </p>
-      <Link to={`/edit/${itinerary.id}`}>Edit</Link>
+      <Link to={`/edit/${itinerary.id}`} class="me-2">Edit</Link>
       <button onClick={handleDelete}>Delete</button>
     </div>
   );
