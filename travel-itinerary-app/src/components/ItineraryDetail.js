@@ -27,9 +27,9 @@ const ItineraryDetail = () => {
   
   return (
     <div className="container">
-      <header className="itinerary-top">
+      {/* <header className="itinerary-top">
         <h2 className='itinerary-title'>予定詳細</h2>
-      </header>
+      </header> */}
       <h2>{itinerary.title}</h2>
       <p>{itinerary.description}</p>
       <p>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Headers = () => {
   return (
-    <header>
+    <header className="mb-3">
         <div className="logo">
           <h3>旅行のしおり</h3>
         </div>
