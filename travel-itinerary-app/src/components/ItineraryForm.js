@@ -42,7 +42,7 @@ const ItineraryForm = () => {
             {/* <header className="itinerary-top">
                 <h2 className='itinerary-title'>{id ? '予定編集' : '予定作成'}</h2>
             </header> */}
-            <h2>{id ? '旅程編集' : '旅程作成'}</h2>
+            <h2 className='border-bottom border-success pb-2'>{id ? '旅程編集' : '旅程作成'}</h2>
             <div className="border rounded-2 p-3 mb-3">
                 <div className="mb-3">
                     <label for="exampleFormControlInput1" className="form-label">Title</label>
@@ -81,6 +81,36 @@ const ItineraryForm = () => {
                         onChange={(e) => setEndDate(e.target.value)}
                         required
                     />
+                </div>
+            </div>
+            <h3 className='border-bottom border-success pb-2'>スケジュール</h3>
+            <div className="border rounded-2 p-3 mb-3">
+                <div className="mb-3">
+                    <input
+                        type='time'
+                        class='form-control'
+                        required
+                    />
+                </div>
+                <div className="mb-3">
+                    <input
+                        type='text'
+                        class='form-control'
+                        placeholder='タイトル'
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className='mb-3'>
+                    <textarea
+                        class='form-control'
+                        placeholder='説明'
+                        rows='3'
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    >
+                    </textarea>
                 </div>
             </div>
             <button className="mb-3 btn btn-primary" type="submit">{id ? 'Update' : 'Create'}</button>
