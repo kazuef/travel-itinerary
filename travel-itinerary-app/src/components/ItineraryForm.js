@@ -7,6 +7,9 @@ const ItineraryForm = () => {
     const [description, setDescription] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
+
+    const [scheduleTime, setScheduleTime] = useState('');
+
     const navigate = useNavigate();
     const { id } = useParams();
 
@@ -83,12 +86,16 @@ const ItineraryForm = () => {
                     />
                 </div>
             </div>
-            <h3 className='border-bottom border-success pb-2'>スケジュール</h3>
+
+            <h3 className='border-bottom border-success pb-2 mb-3'>スケジュール</h3>
+            <botton className="mb-3 btn btn-primary" type='button'>Add</botton>
             <div className="border rounded-2 p-3 mb-3">
                 <div className="mb-3">
                     <input
                         type='time'
                         class='form-control'
+                        value={scheduleTime}
+                        onChange={(e) => setScheduleTime(e.target.value)}
                         required
                     />
                 </div>
