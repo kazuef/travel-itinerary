@@ -10,6 +10,8 @@ const ItineraryForm = () => {
 
     const [scheduleTime, setScheduleTime] = useState('');
 
+    const [forms, setForms] = useState([{ id: Date.now() }]);
+
     const navigate = useNavigate();
     const { id } = useParams();
 
@@ -24,6 +26,15 @@ const ItineraryForm = () => {
             });
         }
     }, [id]);
+
+    const addForm =  () => {
+        setForms([...forms, { id: Date.now() }]);
+    }
+
+    const deleteForm = (id) => {
+        const newForms = forms.filter(form => form.id !== id);
+        setForms(newForms);
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -88,38 +99,43 @@ const ItineraryForm = () => {
             </div>
 
             <h3 className='border-bottom border-success pb-2 mb-3'>スケジュール</h3>
-            <botton className="mb-3 btn btn-primary" type='button'>Add</botton>
-            <div className="border rounded-2 p-3 mb-3">
-                <div className="mb-3">
-                    <input
-                        type='time'
-                        class='form-control'
-                        value={scheduleTime}
-                        onChange={(e) => setScheduleTime(e.target.value)}
-                        required
-                    />
+            <botton className="mb-3 me-2 btn btn-primary" type='button' onClick={addForm}>Add</botton>
+
+            {forms.map(form => (
+                <div className="border rounded-2 p-3 mb-3" key={form.id}>
+                    <div className="mb-3">
+                        <input
+                            type='time'
+                            class='form-control'
+                            value={scheduleTime}
+                            onChange={(e) => setScheduleTime(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <input
+                            type='text'
+                            class='form-control'
+                            placeholder='タイトル'
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className='mb-3'>
+                        <textarea
+                            class='form-control'
+                            placeholder='説明'
+                            rows='3'
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                        >
+                        </textarea>
+                    </div>
+                    <botton className="me-2 btn btn-primary" type='button' onClick={deleteForm}>Delete</botton>
                 </div>
-                <div className="mb-3">
-                    <input
-                        type='text'
-                        class='form-control'
-                        placeholder='タイトル'
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        required
-                    />
-                </div>
-                <div className='mb-3'>
-                    <textarea
-                        class='form-control'
-                        placeholder='説明'
-                        rows='3'
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                    >
-                    </textarea>
-                </div>
-            </div>
+            ))}
+
             <button className="mb-3 btn btn-primary" type="submit">{id ? 'Update' : 'Create'}</button>
         </form>
     )
