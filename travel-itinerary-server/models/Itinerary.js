@@ -25,5 +25,5 @@ const Itinerary = sequelize.define('Itinerary', {
   }, {
     timestamps: true,
   });
-  
+
   module.exports = Itinerary;

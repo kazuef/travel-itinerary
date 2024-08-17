@@ -11,6 +11,7 @@ const ItineraryForm = () => {
     const [scheduleTime, setScheduleTime] = useState('');
 
     const [forms, setForms] = useState([{ id: Date.now() }]);
+    const [schedule, setSchedule] = useState([{}]);
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -107,8 +108,8 @@ const ItineraryForm = () => {
                         <input
                             type='time'
                             class='form-control'
-                            value={scheduleTime}
-                            onChange={(e) => setScheduleTime(e.target.value)}
+                            value={schedule.time}
+                            onChange={(e) => setSchedule(e.target.value)}
                             required
                         />
                     </div>
@@ -117,8 +118,8 @@ const ItineraryForm = () => {
                             type='text'
                             class='form-control'
                             placeholder='タイトル'
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
+                            value={schedule.title}
+                            onChange={(e) => setSchedule(e.target.value)}
                             required
                         />
                     </div>
@@ -127,8 +128,8 @@ const ItineraryForm = () => {
                             class='form-control'
                             placeholder='説明'
                             rows='3'
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
+                            value={schedule.description}
+                            onChange={(e) => setSchedule(e.target.value)}
                         >
                         </textarea>
                     </div>
