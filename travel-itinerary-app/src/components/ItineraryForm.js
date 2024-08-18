@@ -8,10 +8,10 @@ const ItineraryForm = () => {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
 
-    const [scheduleTime, setScheduleTime] = useState('');
+    // const [scheduleTime, setScheduleTime] = useState('');
 
     const [forms, setForms] = useState([{ id: Date.now() }]);
-    const [schedule, setSchedule] = useState([{}]);
+    // const [schedule, setSchedule] = useState([{}]);
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -32,7 +32,14 @@ const ItineraryForm = () => {
         setForms([...forms, { id: Date.now() }]);
     }
 
+    const updateForm = (id, key, value) => {
+        setForms(forms.map(form =>
+            form.id === id ? { ...form, [key]: value}: form
+        ));
+    }
+
     const deleteForm = (id) => {
+        console.log("Hello");
         const newForms = forms.filter(form => form.id !== id);
         setForms(newForms);
     }
@@ -60,10 +67,10 @@ const ItineraryForm = () => {
             <h2 className='border-bottom border-success pb-2'>{id ? '旅程編集' : '旅程作成'}</h2>
             <div className="border rounded-2 p-3 mb-3">
                 <div className="mb-3">
-                    <label for="exampleFormControlInput1" className="form-label">Title</label>
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Title</label>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="exampleFormControlInput1"
                         placeholder="しおりのタイトル"
                         value={title}
@@ -71,16 +78,16 @@ const ItineraryForm = () => {
                         required />
                 </div>
                 <div className="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <label htmlFor="exampleFormControlTextarea1" className="form-label">Description</label>
                     <textarea
-                        class="form-control"
+                        className="form-control"
                         id="exampleFormControlTextarea1"
                         rows="3" value={description}
                         onChange={(e) => setDescription(e.target.value)}>
                     </textarea>
                 </div>
                 <div className="mb-3">
-                    <label class="form-label me-2">Start Date</label>
+                    <label className="form-label me-2">Start Date</label>
                     <input
                         type="date"
                         value={startDate}
@@ -89,7 +96,7 @@ const ItineraryForm = () => {
                     />
                 </div>
                 <div className="mb-3">
-                    <label class="form-label me-2">End Date</label>
+                    <label className="form-label me-2">End Date</label>
                     <input
                         type="date"
                         value={endDate}
@@ -100,40 +107,40 @@ const ItineraryForm = () => {
             </div>
 
             <h3 className='border-bottom border-success pb-2 mb-3'>スケジュール</h3>
-            <botton className="mb-3 me-2 btn btn-primary" type='button' onClick={addForm}>Add</botton>
+            <button className="mb-3 me-2 btn btn-primary" type='button' onClick={addForm}>Add</button>
 
             {forms.map(form => (
                 <div className="border rounded-2 p-3 mb-3" key={form.id}>
                     <div className="mb-3">
                         <input
                             type='time'
-                            class='form-control'
-                            value={schedule.time}
-                            onChange={(e) => setSchedule(e.target.value)}
+                            className='form-control'
+                            value={form.time}
+                            onChange={(e) => updateForm(form.id, 'time', e.target.value)}
                             required
                         />
                     </div>
                     <div className="mb-3">
                         <input
                             type='text'
-                            class='form-control'
+                            className='form-control'
                             placeholder='タイトル'
-                            value={schedule.title}
-                            onChange={(e) => setSchedule(e.target.value)}
+                            value={form.title}
+                            onChange={(e) => updateForm(form.id, 'title', e.target.value)}
                             required
                         />
                     </div>
                     <div className='mb-3'>
                         <textarea
-                            class='form-control'
+                            className='form-control'
                             placeholder='説明'
                             rows='3'
-                            value={schedule.description}
-                            onChange={(e) => setSchedule(e.target.value)}
+                            value={form.description}
+                            onChange={(e) => updateForm(form.id, 'description', e.target.value)}
                         >
                         </textarea>
                     </div>
-                    <botton className="me-2 btn btn-primary" type='button' onClick={deleteForm}>Delete</botton>
+                    <button className="me-2 btn btn-primary" type='button' onClick={deleteForm}>Delete</button>
                 </div>
             ))}
 
